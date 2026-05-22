@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-body-sm: "Inter", sans-serif;
+  --font-body-lg: "Inter", sans-serif;
+  --font-title-md: "Inter", sans-serif;
+  --font-headline-lg: "Inter", sans-serif;
+  --font-display-lg: "Inter", sans-serif;
+  --font-label-caps: "Inter", sans-serif;
+  --font-meta-data: "Inter", sans-serif;
+
+  --color-background: #0b1326;
+  --color-on-background: #dae2fd;
+  --color-surface: #0b1326;
+  --color-surface-dim: #0b1326;
+  --color-surface-bright: #31394d;
+  --color-surface-container-lowest: #060e20;
+  --color-surface-container-low: #131b2e;
+  --color-surface-container: #171f33;
+  --color-surface-container-high: #222a3d;
+  --color-surface-container-highest: #2d3449;
+  --color-surface-variant: #2d3449;
+  --color-on-surface: #dae2fd;
+  --color-on-surface-variant: #c6c5d5;
+  --color-inverse-surface: #dae2fd;
+  --color-inverse-on-surface: #283044;
+  --color-outline: #908f9e;
+  --color-outline-variant: #454653;
+  --color-primary: #bdc2ff;
+  --color-on-primary: #131e8c;
+  --color-primary-container: #818cf8;
+  --color-on-primary-container: #101b8a;
+  --color-inverse-primary: #4953bc;
+  --color-secondary: #d3bbff;
+  --color-on-secondary: #3f008d;
+  --color-secondary-container: #5d03ca;
+  --color-on-secondary-container: #c7aaff;
+  --color-tertiary: #f7bd3e;
+  --color-on-tertiary: #402d00;
+  --color-tertiary-container: #c08d00;
+  --color-on-tertiary-container: #3e2b00;
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+  --color-primary-fixed: #e0e0ff;
+  --color-primary-fixed-dim: #bdc2ff;
+  --color-on-primary-fixed: #000767;
+  --color-secondary-fixed: #ebddff;
+  --color-secondary-fixed-dim: #d3bbff;
+  --color-on-secondary-fixed: #250059;
+
+  --spacing-stack-sm: 8px;
+  --spacing-stack-md: 16px;
+  --spacing-stack-lg: 32px;
+  --spacing-container-padding-desktop: 40px;
+  --spacing-container-padding-mobile: 20px;
+  --spacing-gutter: 24px;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-background font-sans antialiased selection:bg-primary selection:text-on-primary;
+  }
+}
+
+/* Custom Abstract Sound Wave Background Animation */
+@keyframes float1 {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  33% { transform: translate(30px, -50px) scale(1.1); opacity: 0.5; }
+  66% { transform: translate(-20px, 20px) scale(0.9); opacity: 0.4; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+}
+@keyframes float2 {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+  50% { transform: translate(-40px, 40px) scale(1.2); opacity: 0.4; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+}
+
+.blob-1 { animation: float1 15s ease-in-out infinite; }
+.blob-2 { animation: float2 20s ease-in-out infinite alternate; }
+
+/* Subtle Entrance */
+.fade-up {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-surface-container-highest rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-outline-variant;
+}
